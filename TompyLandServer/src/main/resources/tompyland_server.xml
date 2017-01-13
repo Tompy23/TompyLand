@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util">
+
+ 	<import resource="gameAI_template.xml" />
+ 	<import resource="tompyland_resources.xml" />
+
+	<bean id="tompyLandGame" class="net.tompy.tls.game.TompyLandGameImpl" init-method="init">
+		<property name="stateFactory" ref="stateFactory" />
+		<property name="server" ref="${tls.server}" />
+		<property name="serverListener" ref="${tls.listener}" />
+		<property name="characterPersistDirectory" value="${tls.character.persist.directory}" />
+		<property name="sectorPersistDirectory" value="${tls.sector.persist.directory}" />
+		<property name="idFilename" value="${tls.id.filename}" />
+		<property name="terrainDictionary" ref="terrainDictionary" />
+	</bean>
+
+    <util:map id="tompyLandGameStates">
+        <!-- Game States -->
+        <entry key="tompyLandGameRun">
+            <bean class="net.tompy.tls.game.StateTompyLandGameRunImpl">
+            </bean>
+        </entry>
+	</util:map>	
+	
+	<bean id="server" class="net.tompy.tls.network.TompyLandServer">
+		<property name="port" value="${tls.port}" />
+	</bean>
+	
+	<bean id="listener" class="net.tompy.tls.network.TompyLandServerListener" />
+			
+</beans>

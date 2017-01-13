@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util">
+
+ 	<import resource="gameAI_template.xml" />
+
+	<bean id="tompyLandPlay" class="net.tompy.tlc.game.TompyLandPlayImpl" init-method="init">
+		<property name="stateFactory" ref="stateFactory" />
+		<property name="client" ref="${tlc.client}" />
+		<property name="clientListener" ref="${tlc.listener}" />
+	</bean>
+	
+    <util:map id="tompyLandPlayStates">
+        <!-- Game States -->
+        <entry key="tompyLandPlayRun">
+            <bean class="net.tompy.tlc.game.StateTompyLandPlayRunImpl">
+            </bean>
+        </entry>
+        <entry key="tompyLandPlayInit">
+            <bean class="net.tompy.tlc.game.StateTompyLandPlayInitImpl">
+            </bean>
+        </entry>
+        <entry key="tompyLandPlayNewCharacter">
+            <bean class="net.tompy.tlc.game.StateTompyLandPlayNewCharacterImpl">
+            </bean>
+        </entry>
+	</util:map>	
+	
+	<bean id="client" class="net.tompy.tlc.network.TompyLandClient">
+		<property name="host" value="${tlc.host}" />
+		<property name="port" value="${tlc.port}" />
+	</bean>
+	
+	<bean id="listener" class="net.tompy.tlc.network.TompyLandClientListener" />
+
+</beans>

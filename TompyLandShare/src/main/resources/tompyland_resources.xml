@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util">
+
+	<util:map id="terrainList">
+		<entry key="Basic">
+			<util:list>
+				<bean class="net.tompy.tl.map.TerrainData">
+					<property name="id" value="0" />
+					<property name="name" value="clear" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/clear.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+				<bean class="net.tompy.tl.map.TerrainData">
+					<property name="id" value="1" />
+					<property name="name" value="impassable" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/impassable.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+			</util:list>
+		</entry>
+	</util:map>
+	
+	<util:map id="featureList">
+		<entry key="Features">
+			<util:list>
+				<bean class="net.tompy.tl.map.FeatureData">
+					<property name="id" value="0" />
+					<property name="name" value="treasure chest" />
+					<property name="type" value="2" />
+					<property name="state" value="0" />
+					<property name="hexside" value="false" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/treasurechest.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+				<bean class="net.tompy.tl.map.FeatureData">
+					<property name="id" value="0" />
+					<property name="name" value="key" />
+					<property name="type" value="4" />
+					<property name="state" value="0" />
+					<property name="hexside" value="false" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/key.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+				<bean class="net.tompy.tl.map.FeatureData">
+					<property name="id" value="0" />
+					<property name="name" value="coins" />
+					<property name="type" value="5" />
+					<property name="state" value="0" />
+					<property name="hexside" value="false" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/coins.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+			</util:list>
+		</entry>
+		<entry key="Decorations">
+			<util:list>
+				<bean class="net.tompy.tl.map.FeatureData">
+					<property name="id" value="0" />
+					<property name="name" value="wooden door" />
+					<property name="type" value="3" />
+					<property name="state" value="0" />
+					<property name="hexside" value="true" />
+					<property name="sprite">
+						<bean class="net.tompy.ggt.component.SpriteBasicImpl" init-method="init">
+							<property name="imageName" value="tl_images/woodendoorclosed.png" />
+							<property name="imageHeight" value="120" />
+							<property name="imageWidth" value="120" />
+							<property name="cellHeight" value="120" />
+							<property name="cellWidth" value="120" />
+						</bean>
+					</property>
+				</bean>
+			</util:list>
+		</entry>
+	</util:map>
+	
+	<bean id="terrainDictionary" class="net.tompy.tl.map.TerrainDictionary" init-method="init">
+		<property name="terrainList" ref="${terrain.list}" />
+		<property name="featureList"	ref="${feature.list}" />
+	</bean>
+</beans>

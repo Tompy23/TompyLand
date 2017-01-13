@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util">
+
+ 	<import resource="tompyland_resources.xml" />
+
+	<bean id="tompyLandPlayMapCreator" class="net.tompy.tlc.game.mapcreator.TompyLandMapCreatorImpl">
+		<property name="client" ref="${tlc.client}" />
+		<property name="clientListener" ref="${tlc.listener}" />
+		<property name="useServer" value="${use.server}" />
+		<property name="window" ref="mapCreatorApp" />
+		<property name="terrainDictionary" ref="terrainDictionary" />
+		<property name="chunkSize" value="${chunk.size}" />
+	</bean>
+	
+	<bean id="mapCreatorApp" class="net.tompy.tlc.gui.mapcreator.MapCreatorApp" init-method="init">
+		<property name="terrainDictionary" ref="terrainDictionary" />
+		<property name="frameX1" value="${frame.x1}" />
+		<property name="frameX2" value="${frame.x2}" />
+		<property name="frameY1" value="${frame.y1}" />
+		<property name="frameY2" value="${frame.y2}" />
+		<property name="zoomMin" value="${zoom.min}" />
+		<property name="zoomMax" value="${zoom.max}" />
+		<property name="zoomStart" value="${zoom.start}" />
+		<property name="initMapWidth" value="${init.map.width}" />
+		<property name="initMapHeight" value="${init.map.height}" />
+	</bean>
+		
+	<bean id="client" class="net.tompy.tlc.network.TompyLandClient">
+		<property name="host" value="${tlc.host}" />
+		<property name="port" value="${tlc.port}" />
+	</bean>
+	
+	<bean id="listener" class="net.tompy.tlc.network.TompyLandClientListener" />
+
+    <!-- Property Placeholder Configurer -->
+    <bean id="placeholderConfig" class="net.tompy.common.ArgumentListPropertyConfigurer" />
+
+</beans>

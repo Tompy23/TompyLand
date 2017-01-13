@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.tompy</groupId>
+	<artifactId>TompyLandShare</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>net.tompy</groupId>
+			<artifactId>GraphicGameTemplates</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/asm/asm -->
+		<!-- https://mvnrepository.com/artifact/org.ow2.asm/asm -->
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.esotericsoftware/jsonbeans -->
+		<dependency>
+			<groupId>com.esotericsoftware</groupId>
+			<artifactId>jsonbeans</artifactId>
+			<version>0.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.esotericsoftware.kryo/kryo -->
+		<dependency>
+			<groupId>com.esotericsoftware.kryo</groupId>
+			<artifactId>kryo</artifactId>
+			<version>2.21</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.esotericsoftware.minlog/minlog -->
+		<dependency>
+			<groupId>com.esotericsoftware.minlog</groupId>
+			<artifactId>minlog</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.objenesis/objenesis -->
+		<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.esotericsoftware.reflectasm/reflectasm -->
+		<dependency>
+			<groupId>com.esotericsoftware.reflectasm</groupId>
+			<artifactId>reflectasm</artifactId>
+			<version>1.07</version>
+		</dependency>
+	</dependencies>
+
+</project>
